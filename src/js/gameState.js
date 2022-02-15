@@ -18,6 +18,8 @@ function initState() {
         bugStats: {
             width: 50,
             height: 50,
+            nextSpawnTimestamp: 0,
+            maxSpawnInterval: 1800,
             // posX: 2,
             // posY: randomStart,
             // speed: 10,
