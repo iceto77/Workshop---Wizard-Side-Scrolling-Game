@@ -7,6 +7,7 @@ function initState() {
             height: 100,
             posX: 2,
             posY: randomStart,
+            speed: 10,
         },
         keys: {}
     }
