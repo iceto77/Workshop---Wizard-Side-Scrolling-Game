@@ -1,6 +1,6 @@
 function initState(){
     const state ={
-        player: 'Pesho';
+        player: 'Pesho',
     }
 
 
