@@ -9,7 +9,19 @@ function initState() {
             posY: randomStart,
             speed: 10,
         },
-        keys: {}
+        keys: {
+            KeyA: false,
+            KeyS: false, 
+            KeyD: false, 
+            KeyW: false,
+        },
+        bugStats: {
+            width: 50,
+            height: 50,
+            // posX: 2,
+            // posY: randomStart,
+            // speed: 10,
+        },
     }
 
     return state;
