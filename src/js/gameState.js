@@ -20,9 +20,9 @@ function initState() {
             height: 50,
             nextSpawnTimestamp: 0,
             maxSpawnInterval: 1800,
+            speed: 8,
             // posX: 2,
             // posY: randomStart,
-            // speed: 10,
         },
     }
 
