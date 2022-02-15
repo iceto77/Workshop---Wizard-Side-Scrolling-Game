@@ -10,8 +10,8 @@ function initGameObjects() {
             wizardElement.classList.add('wizard');
             wizardElement.style.height = initialState.height + 'px';
             wizardElement.style.width = initialState.width + 'px';
-            wizardElement.style.left = initialState.startX + 'px';
-            wizardElement.style.top = initialState.startY + 'px';
+            wizardElement.style.left = initialState.posX + 'px';
+            wizardElement.style.top = initialState.posY + 'px';
 
             this.wizardElement = wizardElement;
             gameScreen.appendChild(wizardElement);
