@@ -14,6 +14,7 @@ function initState() {
             KeyS: false, 
             KeyD: false, 
             KeyW: false,
+            Space: false,
         },
         bugStats: {
             width: 50,
@@ -21,8 +22,11 @@ function initState() {
             nextSpawnTimestamp: 0,
             maxSpawnInterval: 1800,
             speed: 8,
-            // posX: 2,
-            // posY: randomStart,
+        },
+        fireball: {
+            width: 20,
+            height: 20,
+            speed: 20,
         },
     }
 

@@ -1,6 +1,6 @@
 let state = initState();
 let game = initGameObjects();
-const availableKeys = ['KeyA', 'KeyS', 'KeyD', 'KeyW']; // ['KeyA','KeyS','KeyD','KeyW', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ArrowUp' ];
+const availableKeys = ['KeyA', 'KeyS', 'KeyD', 'KeyW', 'Space']; // ['KeyA','KeyS','KeyD','KeyW', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ArrowUp', 'Space' ];
 
 
 

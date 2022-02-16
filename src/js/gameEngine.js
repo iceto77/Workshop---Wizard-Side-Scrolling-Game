@@ -8,16 +8,46 @@ function gameLoop(state, game, timestamp) {
     const { wizard } = state;
     const { wizardElement } = game;
     // Move wizard
-    modifyWizardPosition(state, game)
+    modifyWizardPosition(state, game);
+
+    if (state.keys.Space) {
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")';
+        game.createFireball(wizard, state.fireball);
+    } else {
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")';
+    };
+    //Detect fireball collision
+
     //Spawn bugs
     if (timestamp > state.bugStats.nextSpawnTimestamp) {
         game.createBug(state.bugStats);
         state.bugStats.nextSpawnTimestamp = timestamp + Math.random() * state.bugStats.maxSpawnInterval;
     };
     //Render bugs
-    document.querySelectorAll('.bug').forEach(bug => {
+    let bugElements = document.querySelectorAll('.bug');
+    bugElements.forEach(bug => {
         let posX = parseInt(bug.style.left);
-        bug.style.left = posX - state.bugStats.speed + 'px';
+        if (posX - 1 > 0 - state.bugStats.width) {
+            bug.style.left = posX - state.bugStats.speed + 'px';
+        } else {
+            bug.remove();
+        }
+    });
+    // Render fireballs
+    document.querySelectorAll('.fireball').forEach(fireball => {
+        let posX = parseInt(fireball.style.left);
+        //Detect collision
+        bugElements.forEach(bug => {
+            if(detectCollision(bug, fireball)){
+              bug.remove();  
+              fireball.remove();  
+            };
+        });
+        if (posX < game.gameScreen.offsetWidth - state.fireball.width) {
+            fireball.style.left = posX + state.fireball.speed + 'px';
+        } else {
+            fireball.remove();
+        } 
     });
     //Render wizard
     wizardElement.style.left = wizard.posX + 'px';
@@ -42,3 +72,12 @@ function modifyWizardPosition(state, game) {
         wizard.posY = Math.min(wizard.posY + wizard.speed, game.gameScreen.offsetHeight - wizard.height);
     };
 }
+
+function detectCollision(objectA, objectB){
+    let first = objectA.getBoundingClientRect();
+    let second = objectB.getBoundingClientRect();
+
+    let hasCollision = !(first.top > second.bottom || first.bottom < second.top 
+        || first.right < second.left || first.left > second.right);
+    return hasCollision;
+};
