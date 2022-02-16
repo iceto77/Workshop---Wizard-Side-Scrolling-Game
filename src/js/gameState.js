@@ -2,6 +2,9 @@ function initState() {
     let randomStart = Math.floor(Math.random() * 800);
     const state = {
         player: 'Pesho',
+        gameOver: false,
+        score:0,
+        scoreRate: 1,
         wizard: {
             width: 82,
             height: 100,
@@ -27,6 +30,8 @@ function initState() {
             width: 20,
             height: 20,
             speed: 20,
+            nextSpawnTimestamp: 0,
+            fireRate: 300,
         },
     }
 
